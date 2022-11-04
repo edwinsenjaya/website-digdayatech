@@ -2,7 +2,7 @@
   <div :class="`${section}-container`">
     <h4 class="content-title">
       <span
-        ><img :src="image" :alt="section" :class="`${section}-image`"
+        ><img :src="useAsset(image)" :alt="section" :class="`${section}-image`"
       /></span>
       {{ title }}
     </h4>
@@ -13,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+import useAsset from "../../helpers/useAsset";
 interface ContactUsProps {
   section: string;
   image: string;
@@ -50,6 +51,7 @@ div[class$="-container"] {
 .content-title {
   font-weight: 600;
   font-size: 21px;
+  line-height: 24.89px;
   color: #ffffff;
   margin-bottom: 12px;
   margin-top: 20px;
@@ -123,6 +125,64 @@ div[class$="-container"] {
 @media only screen and (max-width: 679px) {
   div[class$="-container"] {
     min-width: 450px;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  div[class$="-container"] {
+    min-width: 93.95vw;
+    padding-left: 5.01vw;
+    padding-right: 5.01vw;
+  }
+
+  .address-container {
+    height: 31.32vw;
+    margin-bottom: 6.26vw;
+  }
+
+  .content-title {
+    margin-bottom: 2.51vw;
+    margin-top: 4.18vw;
+  }
+
+  .content-text {
+    margin-bottom: 4.18vw;
+  }
+
+  .address-image {
+    margin-right: 7.138vw;
+    margin-bottom: 0.42vw;
+  }
+
+  .email-container {
+    height: 31.73vw;
+    margin-bottom: 8.14vw;
+  }
+
+  .email-image {
+    margin-right: 6.68vw;
+    margin-bottom: 0.42vw;
+  }
+
+  .phone-container {
+    height: 31.73vw;
+  }
+
+  .phone-image {
+    margin-right: 6.68vw;
+    margin-bottom: 0.42vw;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .address-container,
+  .email-container {
+    height: 150px;
+    margin-bottom: 30px;
+  }
+
+  .phone-container {
+    height: 150px;
   }
 }
 </style>

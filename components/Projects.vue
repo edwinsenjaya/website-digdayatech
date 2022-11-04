@@ -27,6 +27,12 @@
   justify-content: center;
 }
 
+@media only screen and (min-width: 1280px) {
+  .projects-container {
+    padding: 0 calc((100vw - 1280px) / 2);
+  }
+}
+
 .parallelogram-right {
   width: 525px;
   height: 387px;
@@ -128,7 +134,6 @@
 }
 
 .secondary-text {
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
@@ -142,5 +147,30 @@
   font-size: 34px;
   line-height: 40px;
   color: #ffffff;
+}
+
+@media only screen and (max-width: 479px) {
+  #projects {
+    scroll-margin-top: 93.28px;
+  }
+
+  .projects-container {
+    height: 151.36vw;
+  }
+
+  .dash {
+    width: 5.85vw;
+    margin-right: 2.51vw;
+  }
+
+  .secondary-text {
+    margin-bottom: 6.26vw;
+  }
+}
+
+@media only screen and (max-width: 449px) {
+  .projects-container {
+    height: 178.17vw;
+  }
 }
 </style>

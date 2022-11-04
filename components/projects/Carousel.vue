@@ -83,4 +83,27 @@
   margin: 0px 6px;
   opacity: 1;
 }
+
+@media only screen and (max-width: 480px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    height: 320px;
+  }
+
+  .carousel-indicators {
+    bottom: -43px;
+  }
+
+  .carousel-indicators [data-bs-target].active {
+    height: 2.5vw;
+    width: 5.92vw;
+    margin: 0px 1.25vw;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 2.5vw;
+    height: 2.5vw;
+    margin: 0px 1.25vw;
+  }
+}
 </style>

@@ -1,29 +1,33 @@
 <template>
   <div class="container-fluid">
-    <footer class="py-5 px-5">
+    <footer class="py-5 px-5 footer-container">
       <div class="row mt-3">
         <div class="col-6 col-md-2 mb-3 me-4 logo-container">
           <ul class="nav flex-column">
             <li class="nav-item mb-4">
-              <img
-                src="../assets/logo-primary.png"
-                alt="Logo"
-                height="92px"
-                width="156px"
-                class="d-inline-block align-text-top"
-              />
+              <a href="#">
+                <img
+                  src="../assets/logo-primary.png"
+                  alt="Logo"
+                  height="92px"
+                  width="156px"
+                  class="d-inline-block align-text-top"
+                />
+              </a>
             </li>
             <li class="nav-item mb-2">
               <a class="nav-link p-0" style="color: white; font-size: 14px"
                 >Subsidiary of</a
               >
-              <img
-                src="../assets/logo-multipolar.png"
-                alt="Logo"
-                height="52px"
-                width="156px"
-                class="d-inline-block align-text-top"
-              />
+              <a href="https://multipolar.com/" target="_blank">
+                <img
+                  src="../assets/logo-multipolar.png"
+                  alt="Logo"
+                  height="52px"
+                  width="156px"
+                  class="d-inline-block align-text-top"
+                />
+              </a>
             </li>
           </ul>
         </div>
@@ -32,16 +36,16 @@
           <h6 class="title">Company</h6>
           <ul class="nav flex-column">
             <li class="nav-item mb-2">
-              <a href="#home" class="text-nav nav-link p-0">Home</a>
+              <a href="/#home" class="text-nav nav-link p-0">Home</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#about" class="text-nav nav-link p-0">About</a>
+              <a href="/#about" class="text-nav nav-link p-0">About</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#contact" class="text-nav nav-link p-0">Contact</a>
+              <a href="/#contact" class="text-nav nav-link p-0">Contact</a>
             </li>
             <li class="nav-item mb-2">
-              <a href="#career" class="text-nav nav-link p-0">Career</a>
+              <a href="/career" class="text-nav nav-link p-0">Career</a>
             </li>
           </ul>
         </div>
@@ -62,7 +66,10 @@
           <h6 class="title">Social Media</h6>
           <div class="col-12" style="display: flex">
             <div class="col-3 me-md-5 me-sm-2">
-              <a href="#">
+              <a
+                href="https://id.linkedin.com/company/digital-daya-teknologi"
+                target="_blank"
+              >
                 <img
                   src="../assets/linkedin-square.png"
                   alt="linkedin"
@@ -73,7 +80,7 @@
               </a>
             </div>
             <div class="col-3 me-md-5 me-sm-2">
-              <a href="">
+              <a href="#">
                 <img
                   src="../assets/youtube-square.png"
                   alt="youtube"
@@ -109,7 +116,7 @@
         </div>
       </div>
     </footer>
-    <div class="row" style="background: #1c1f23">
+    <div class="row" style="background: #1c1f23; justify-content: center">
       <p class="text-center text-copyright">
         &copy; 2022 PT Digital Daya Teknologi. All Rights Reserved.
       </p>
@@ -122,6 +129,12 @@
   font-family: "Rubik";
   background: #212529;
   color: white;
+}
+
+@media only screen and (min-width: 1280px) {
+  .footer-container {
+    padding: 3rem calc((100vw - 1280px) / 2 + 3rem) !important;
+  }
 }
 
 .title {
@@ -205,6 +218,36 @@
 
   .socmed-section {
     width: 65%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .footer-container {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+
+  .company-section {
+    width: 55%;
+  }
+
+  .legal-section {
+    width: 45%;
+  }
+
+  .logo-container img {
+    width: 170px;
+    height: auto;
+  }
+
+  .socmed-section {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .text-copyright {
+    width: 260px;
   }
 }
 </style>

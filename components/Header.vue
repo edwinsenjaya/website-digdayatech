@@ -1,13 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg header-container">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img
           src="../assets/logo-primary.png"
           alt="Logo"
           height="58px"
           width="98.41px"
-          class="d-inline-block align-text-top"
+          class="d-inline-block align-text-top logo-primary"
         />
       </a>
       <div style="text-align: right">
@@ -26,7 +26,7 @@
               alt="Logo"
               height="24px"
               width="35px"
-              class="d-inline-block align-text-top"
+              class="d-inline-block align-text-top dropdown-open-img"
             />
           </button>
           <button
@@ -40,7 +40,7 @@
               alt="Logo"
               height="25.92px"
               width="25.92px"
-              class="d-inline-block align-text-top"
+              class="d-inline-block align-text-top dropdown-close-img"
             />
           </button>
         </div>
@@ -52,7 +52,7 @@
                 id="link-home"
                 class="nav-link"
                 aria-current="page"
-                href="#home"
+                href="/#home"
                 >Home</a
               >
             </li>
@@ -61,7 +61,7 @@
                 @click="scrollToSection"
                 id="link-about"
                 class="nav-link"
-                href="#about"
+                href="/#about"
                 >About</a
               >
             </li>
@@ -71,9 +71,8 @@
                   @click="scrollToSection"
                   id="link-projects"
                   class="nav-link dropdown-toggle"
-                  href="#projects"
+                  href="/#projects"
                   role="button"
-                  data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Projects
@@ -92,18 +91,12 @@
                 @click="scrollToSection"
                 id="link-contact"
                 class="nav-link"
-                href="#contact"
+                href="/#contact"
                 >Contact</a
               >
             </li>
             <li class="nav-item">
-              <a
-                @click="scrollToSection"
-                id="link-career"
-                class="nav-link"
-                href="#career"
-                >Career</a
-              >
+              <a id="link-career" class="nav-link" href="/career">Career</a>
             </li>
           </ul>
         </div>
@@ -116,7 +109,7 @@
         <a
           @click="scrollToSection"
           id="link-home"
-          href="#home"
+          href="/#home"
           class="option-text"
           >Home</a
         >
@@ -125,13 +118,17 @@
         <a
           @click="scrollToSection"
           id="link-about"
-          href="#about"
+          href="/#about"
           class="option-text"
           >About</a
         >
       </div>
       <div class="dropdown-option">
-        <a href="#" class="option-text" @click="showProjects"
+        <a
+          href="/#projects"
+          class="option-text"
+          @click="showProjects"
+          id="link-projects"
           >Projects<span style="margin-left: 10px; font-size: 9px"
             >&#9660;</span
           ></a
@@ -152,29 +149,28 @@
         <a
           @click="scrollToSection"
           id="link-contact"
-          href="#"
+          href="/#contact"
           class="option-text"
           >Contact</a
         >
       </div>
       <div class="dropdown-option">
-        <a
-          @click="scrollToSection"
-          id="link-career"
-          href="#"
-          class="option-text"
-          >Career</a
-        >
+        <a id="link-career" href="/career" class="option-text">Career</a>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+const router = useRouter();
+const currentRoute = router.currentRoute.value.fullPath.split("/")[1];
+
 const scrollToSection = (e) => {
-  e.preventDefault();
-  document.querySelector(e.target.id)?.focus();
-  document.querySelector(`#${e.target.id.split("-")[1]}`).scrollIntoView();
+  if (!currentRoute || currentRoute[0] === "#") {
+    e.preventDefault();
+    document.querySelector(e.target.id)?.focus();
+    document.querySelector(`#${e.target.id.split("-")[1]}`).scrollIntoView();
+  }
 };
 
 const toggleDropdown = () => {
@@ -195,7 +191,13 @@ const toggleDropdown = () => {
     : (optionsButton.display = "none");
 };
 
-const showProjects = () => {
+const showProjects = (e) => {
+  if (!currentRoute || currentRoute[0] === "#") {
+    e.preventDefault();
+    document.querySelector(e.target.id)?.focus();
+    document.querySelector(`#${e.target.id.split("-")[1]}`).scrollIntoView();
+  }
+
   const dropdownProjects = document.querySelector(".dropdown-projects")?.style;
   dropdownProjects.display === "block"
     ? (dropdownProjects.display = "none")
@@ -226,12 +228,30 @@ const hideDropdown = (e) => {
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 3;
+}
+
+@media only screen and (min-width: 1280px) {
+  .header-container {
+    padding: 10px calc((100vw - 1280px) / 2 + 85px);
+  }
 }
 
 @media only screen and (max-width: 576px) {
   .header-container {
     padding: 10px 40px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header-container {
+    padding: 10px 5%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .header-container {
+    padding: 10px 2%;
   }
 }
 
@@ -281,6 +301,10 @@ const hideDropdown = (e) => {
   background: #424242;
 }
 
+.dropdown-toggle {
+  width: 100px;
+}
+
 .dropdown-item {
   border-bottom: #879ab1 solid 1px;
 }
@@ -294,7 +318,6 @@ const hideDropdown = (e) => {
 }
 
 .dropdown-content {
-  position: absolute;
   display: none;
   left: 135px;
   right: 135px;
@@ -357,8 +380,26 @@ const hideDropdown = (e) => {
 
 @media only screen and (max-width: 576px) {
   .dropdown-content {
+    width: 100vw;
     right: 0;
     left: 0;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .logo-primary {
+    height: auto;
+    width: 70px;
+  }
+
+  .dropdown-open-img {
+    height: auto;
+    width: 30px;
+  }
+
+  .dropdown-close-img {
+    height: auto;
+    width: 20px;
   }
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="content-container">
       <div class="content-image">
         <img
-          src="../../assets/project-nobuneo.png"
+          src="@/assets/project-nobuneo.png"
           alt="project-image"
           class="project-image"
         />
@@ -18,12 +18,18 @@
           adipiscing elit.
         </p>
         <button class="button-project-detail">More Detail</button>
-        <div class="download-buttons-container">
-          <a href="#" style="margin-right: 24px"
-            ><img src="../../assets/google-play-store.png" alt="playstore"
+        <div class="download-container">
+          <a href="#"
+            ><img
+              src="@/assets/google-play-store.png"
+              alt="playstore"
+              class="playstore-image"
           /></a>
           <a href="#"
-            ><img src="../../assets/apple-app-store.png" alt="appstore"
+            ><img
+              src="@/assets/apple-app-store.png"
+              alt="appstore"
+              class="appstore-image"
           /></a>
         </div>
       </div>
@@ -33,7 +39,7 @@
     <div class="content-container">
       <div class="content-image">
         <img
-          src="../../assets/project-nobuneo.png"
+          src="@/assets/project-nobuneo.png"
           alt="project-image"
           class="project-image"
         />
@@ -48,12 +54,18 @@
           adipiscing elit.
         </p>
         <button class="button-project-detail">More Detail</button>
-        <div class="download-buttons-container">
-          <a href="#" style="margin-right: 24px"
-            ><img src="../../assets/google-play-store.png" alt="playstore"
+        <div class="download-container">
+          <a href="#"
+            ><img
+              src="@/assets/google-play-store.png"
+              alt="playstore"
+              class="playstore-image"
           /></a>
           <a href="#"
-            ><img src="../../assets/apple-app-store.png" alt="appstore"
+            ><img
+              src="@/assets/apple-app-store.png"
+              alt="appstore"
+              class="appstore-image"
           /></a>
         </div>
       </div>
@@ -73,12 +85,24 @@
   padding-left: 15.6%;
 }
 
+.playstore-image {
+  width: 165px;
+  height: 49px;
+  margin-right: 24px;
+}
+
+.appstore-image {
+  width: 145.84px;
+  height: 46.86px;
+}
+
 .project-image {
   width: 355px;
   height: 496px;
 }
 
 .content-text {
+  font-family: "Rubik";
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -89,7 +113,6 @@
 }
 
 .content-text h1 {
-  font-family: "Rubik";
   font-weight: 600;
   font-size: 21px;
   line-height: 25px;
@@ -98,7 +121,6 @@
 }
 
 .content-text p {
-  font-family: "Rubik";
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -117,6 +139,7 @@
   border: none;
   margin-top: 50px;
   margin-bottom: 40px;
+  letter-spacing: 1.25px;
 }
 
 @media only screen and (max-width: 1279px) {
@@ -137,16 +160,11 @@
     flex-direction: column;
     align-items: center;
     height: 850px;
-    /* width: 105vw; */
   }
 
   .content-image {
     padding-left: 0;
-  }
-
-  .project-image {
     width: 235px;
-    height: 364.59px;
   }
 
   .content-text {
@@ -162,6 +180,44 @@
 
   .content-text {
     width: 72%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .content-container {
+    height: auto;
+    padding-top: 8.35vw;
+  }
+
+  .content-text {
+    width: 95%;
+    margin-top: 32px;
+  }
+
+  .button-project-detail {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .download-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .playstore-image {
+    margin-right: 5.01vw;
+  }
+}
+
+@media only screen and (max-width: 449px) {
+  .download-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .playstore-image {
+    margin-right: 0;
+    margin-bottom: 17px;
   }
 }
 </style>

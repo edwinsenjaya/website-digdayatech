@@ -3,10 +3,11 @@
     <div class="card-front">
       <div class="image-container">
         <img
-          :src="`../../assets/${image}`"
+          :src="useAsset(image)"
           :alt="`${image}`"
           width="112px"
           height="112px"
+          class="illustration-image"
         />
       </div>
       <div class="text-container">
@@ -19,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+import useAsset from "../../helpers/useAsset";
 interface KeyInitiativesProps {
   title: string;
   content: string;
@@ -152,6 +154,7 @@ const keyInitiativesProps = defineProps<KeyInitiativesProps>();
   .title-text {
     width: 282px;
     text-align: center;
+    justify-content: center;
     margin-bottom: 20px;
   }
 
@@ -225,6 +228,103 @@ const keyInitiativesProps = defineProps<KeyInitiativesProps>();
 
   .content-text {
     width: 260px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .card-container {
+    width: 93.75vw;
+    height: 62.92vw;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .card-front {
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90.63vw;
+    height: 59.79vw;
+    margin-top: 3.13vw;
+    padding: 16px 20px;
+  }
+
+  .card-back {
+    width: 90.63vw;
+    height: 59.79vw;
+    margin-left: 3.13vw;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .text-container {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .title-text {
+    font-size: 21px;
+    width: auto;
+    text-align: center;
+    margin-bottom: 3.13vw;
+    line-height: 24.89px;
+  }
+
+  .content-text {
+    font-size: 16px;
+    text-align: center;
+    width: auto;
+    margin-bottom: 0;
+    line-height: 24px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .card-container {
+    width: 95.31vw;
+    height: 351px;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .card-front {
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90.63vw;
+    height: 336px;
+    margin-top: 3.5vw;
+    padding: 16px 20px;
+  }
+
+  .card-back {
+    width: 90.63vw;
+    height: 336px;
+    margin-left: 3.5vw;
+  }
+
+  .title-text {
+    justify-content: center;
+    margin-bottom: 3.5vw;
+    line-height: 25px;
+    width: 242px;
+  }
+}
+
+@media only screen and (max-width: 319px) {
+  .card-container {
+    height: 375px;
+  }
+
+  .card-front {
+    height: 360px;
+    justify-content: space-around;
+  }
+
+  .card-back {
+    height: 360px;
   }
 }
 </style>

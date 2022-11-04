@@ -10,6 +10,7 @@
 </template>
 
 <script setup lang="ts">
+import useAsset from "../helpers/useAsset";
 useHead({
   title: "Digital Daya Teknologi",
   viewport: "width=device-width, initial-scale=1",
@@ -22,7 +23,7 @@ useHead({
         "sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT",
       crossorigin: "anonymous",
     },
-    { rel: "icon", type: "image/x-icon", href: "./assets/logo-icon.ico" },
+    { rel: "icon", type: "image/x-icon", href: useAsset("logo-icon.ico") },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     {
       rel: "preconnect",

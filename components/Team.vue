@@ -14,6 +14,7 @@
       <TeamPhoto
         v-for="(item, index) in teamData"
         :key="index"
+        :no="item.no"
         :photo="item.photo"
         :part="item.part"
         :name="item.name"
@@ -27,43 +28,49 @@
 <script setup lang="ts">
 const teamData = [
   {
-    photo: "../../assets/photo.png",
+    photo: "jerry-goei.png",
     part: "top",
-    name: "Rizal Pramarta",
-    title: "CEO / Advisor",
+    name: "Jerry Goei",
+    title: "Director",
   },
   {
-    photo: "../../assets/photo.png",
+    photo: "rizal-pramarta.png",
+    part: "bottom",
+    name: "Rizal Pramarta",
+    title: "Advisor",
+  },
+  {
+    photo: "samuel-mulyono.png",
     part: "top",
     name: "Samuel Mulyono",
     title: "Advisor",
   },
   {
-    photo: "../../assets/photo.png",
-    part: "top",
+    photo: "ditto-widigdo.png",
+    part: "bottom",
     name: "Ditto Widigdo",
-    title: "CTO & CPO",
+    title: "CEO",
   },
   {
-    photo: "../../assets/photo.png",
-    part: "bottom",
+    photo: "aldino-achmadi.png",
+    part: "top",
     name: "Aldino Achmadi",
     title: "VP Delivery & Solutioning",
   },
   {
-    photo: "../../assets/photo.png",
+    photo: "gamma-satria.png",
     part: "bottom",
     name: "Gamma Satria",
     title: "VP Development & Engineering",
   },
   {
-    photo: "../../assets/photo.png",
-    part: "bottom",
+    photo: "syaiful-anam.png",
+    part: "top",
     name: "M. Syaiful Anam",
     title: "Head of Business Banking",
   },
   {
-    photo: "../../assets/photo.png",
+    photo: "irene-soedarsono.png",
     part: "bottom",
     name: "Irene Soedarsono",
     title: "Head of UI / UX",
@@ -76,14 +83,14 @@ const teamData = [
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 1280px;
+  height: 1173px;
   background: #303030;
   font-family: "Rubik";
 }
 
 .title-text {
   display: flex;
-  margin-top: 50px;
+  margin-top: 48px;
 }
 
 .dash {
@@ -96,12 +103,11 @@ const teamData = [
 }
 
 .secondary-text {
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   color: #0cb1bb;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .main-text {
@@ -109,7 +115,7 @@ const teamData = [
   font-size: 34px;
   line-height: 40px;
   color: #ffffff;
-  margin-bottom: 45px;
+  margin-bottom: 40px;
 }
 
 .team-description {
@@ -128,35 +134,35 @@ const teamData = [
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  height: 945px;
+  height: 850px;
   width: 1140px;
 }
 
 @media only screen and (max-width: 1279px) {
   .team-container {
-    height: 1110px;
+    height: 1013px;
   }
 
   .pictures-container {
-    height: 772.5px;
+    height: 690px;
     width: 930px;
   }
 }
 
 @media only screen and (max-width: 991px) {
   .team-container {
-    height: 900px;
+    height: 829px;
   }
 
   .pictures-container {
-    height: 562.5px;
+    height: 506px;
     width: 690px;
   }
 }
 
-@media only screen and (max-width: 794px) {
+@media only screen and (max-width: 767px) {
   .team-container {
-    height: 3515px;
+    height: 3897px;
     padding-top: 275px;
   }
 
@@ -166,23 +172,66 @@ const teamData = [
 
   .pictures-container {
     flex-direction: column;
-  }
-
-  .pictures-container {
-    height: 2870px;
+    height: 3280px;
     width: 330px;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 480px) {
   .team-container {
-    height: 4375px;
-    padding-top: 315px;
+    height: 1030vw;
+    padding-top: 300px;
+    padding-bottom: 48px;
+  }
+
+  .title-text {
+    margin-top: 10vw;
+  }
+
+  .dash {
+    width: 5.83vw;
+    margin-right: 2.5vw;
+  }
+
+  .secondary-text {
+    margin-bottom: 5vw;
+  }
+
+  .team-description {
+    width: 85vw;
   }
 
   .pictures-container {
-    height: 3710px;
-    width: 450px;
+    height: 883.4vw;
+    width: 93.75vw;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .team-container {
+    height: 1060vw;
+    padding-top: 350px;
+  }
+}
+
+@media only screen and (max-width: 379px) {
+  .team-container {
+    height: 1090vw;
+    padding-top: 385px;
+  }
+}
+
+@media only screen and (max-width: 349px) {
+  .team-container {
+    height: 1145vw;
+    padding-top: 490px;
+  }
+}
+
+@media only screen and (max-width: 309px) {
+  .team-container {
+    height: 1220vw;
+    padding-top: 580px;
   }
 }
 </style>

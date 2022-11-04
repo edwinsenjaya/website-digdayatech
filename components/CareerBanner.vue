@@ -9,16 +9,12 @@
         Multiple lines of text that form the lede, informing new readers quickly
         and efficiently
       </p>
-      <a href="#" class="career-button">Join Us</a>
+      <a href="/career" class="career-button">Join Us</a>
     </div>
   </div>
 </template>
 
 <style scoped>
-#career {
-  scroll-margin-top: 91px;
-}
-
 .career-banner-container {
   display: flex;
   height: 370px;
@@ -63,6 +59,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  width: 100vw;
 }
 
 .content-title {
@@ -96,5 +93,40 @@
   text-align: center;
   text-decoration: none;
   letter-spacing: 1.25px;
+}
+
+@media only screen and (max-width: 449px) {
+  .career-banner-container,
+  .illustration-image,
+  .background-filter,
+  .halftone-image {
+    height: 334px;
+  }
+
+  .illustration-image {
+    background-position-x: -440px;
+  }
+
+  .content-title {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 8.91vw;
+  }
+
+  .content-text {
+    width: 95vw;
+    margin-bottom: 8.91vw;
+  }
+
+  .career-button {
+    width: 210px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .content-title {
+    text-align: center;
+    width: 260px;
+  }
 }
 </style>

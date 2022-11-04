@@ -57,7 +57,7 @@ const keyInitiatives = [
   {
     title: "Overhaul of Architecture ",
     content:
-      "We are implementing latest technology such microservice, kubernetes, DevOps, and full cloud infrastructure",
+      "We are implementing the latest technology such as microservice, kubernetes, DevOps, and full cloud infrastructure",
     image: "overhaul-of-architecture.png",
   },
   {
@@ -75,9 +75,52 @@ const keyInitiatives = [
 }
 
 .about-container {
+  position: relative;
   font-family: "Rubik";
   display: flex;
   background: #303030;
+}
+
+.main-text {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 40px;
+  width: 550px;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.secondary-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #0cb1bb;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.content-text {
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  width: 542px;
+  margin-bottom: 0;
+}
+
+.dash {
+  background: #0cb1bb;
+  height: 3px;
+  width: 28px;
+  margin-top: 9px;
+  margin-right: 12px;
+  border-radius: 50px;
+}
+
+@media only screen and (min-width: 1280px) {
+  .about-container,
+  .cards-container {
+    padding: 0 calc((100vw - 1280px) / 2);
+  }
 }
 
 .image-container {
@@ -106,9 +149,11 @@ const keyInitiatives = [
   }
 
   .image-container {
+    position: absolute;
+    top: 266px;
     width: 100%;
     height: auto;
-    margin-bottom: 67px;
+    margin-bottom: 0;
   }
 
   .text-container {
@@ -119,6 +164,10 @@ const keyInitiatives = [
     margin-top: 55px;
     margin-bottom: 67px;
   }
+
+  .main-text {
+    margin-bottom: 360px;
+  }
 }
 
 @media only screen and (max-width: 574px) {
@@ -127,31 +176,41 @@ const keyInitiatives = [
   }
 }
 
-.main-text {
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 40px;
-  width: 550px;
-  color: #ffffff;
-  margin-bottom: 40px;
+@media only screen and (max-width: 480px) {
+  .text-container {
+    padding-left: 3.13vw;
+    margin-top: 11.48vw;
+    margin-bottom: 13.98vw;
+  }
+
+  .image-container {
+    margin-bottom: 13.98vw;
+    top: 50vw;
+  }
 }
 
-.secondary-text {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #0cb1bb;
-  margin-bottom: 24px;
-  text-align: left;
+@media only screen and (max-width: 429px) {
+  .image-container {
+    top: 55vw;
+  }
 }
 
-.content-text {
-  font-weight: 400;
-  font-size: 16px;
-  color: #ffffff;
-  width: 542px;
-  margin-bottom: 0;
+@media only screen and (max-width: 379px) {
+  .image-container {
+    top: 60vw;
+  }
+}
+
+@media only screen and (max-width: 328px) {
+  .image-container {
+    top: 77vw;
+  }
+}
+
+@media only screen and (max-width: 295px) {
+  .image-container {
+    top: 94vw;
+  }
 }
 
 @media only screen and (max-width: 1104px) {
@@ -198,13 +257,35 @@ const keyInitiatives = [
   }
 }
 
-.dash {
-  background: #0cb1bb;
-  height: 3px;
-  width: 28px;
-  margin-top: 9px;
-  margin-right: 12px;
-  border-radius: 50px;
+@media only screen and (max-width: 480px) {
+  #about {
+    scroll-margin-top: 74.28px;
+  }
+
+  .main-text {
+    width: 93.94vw;
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 75vw;
+  }
+
+  .dash {
+    width: 5.84vw;
+    margin-right: 2.5vw;
+    border-radius: 10.43vw;
+  }
+
+  .secondary-text {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 30px;
+  }
+
+  .content-text {
+    font-size: 16px;
+    line-height: 24px;
+    width: 93.52vw;
+  }
 }
 
 .about-image {
@@ -233,6 +314,13 @@ const keyInitiatives = [
   }
 }
 
+@media only screen and (max-width: 479px) {
+  .about-image {
+    width: 77.24vw;
+    height: 57vw;
+  }
+}
+
 .cards-container {
   font-family: "Rubik";
   display: flex;
@@ -258,5 +346,18 @@ const keyInitiatives = [
   padding-bottom: 58px;
   background: #303030;
   margin-bottom: 0;
+}
+
+@media only screen and (max-width: 479px) {
+  .key-initiatives-title {
+    font-size: 7.09vw;
+    line-height: 8.35vw;
+    padding-top: 4.17vw;
+    padding-bottom: 12.1vw;
+  }
+
+  .cards-container {
+    padding-bottom: 20.04vw;
+  }
 }
 </style>

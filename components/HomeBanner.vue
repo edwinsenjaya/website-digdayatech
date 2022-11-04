@@ -6,7 +6,7 @@
         <h2 class="secondary-text">SUCCESS YOUR BUSINESS</h2>
       </div>
       <h1 class="main-text">
-        We provide the best product to support your business
+        We provide the best products to support your business
       </h1>
     </div>
   </section>
@@ -30,6 +30,12 @@ section {
   justify-content: center;
   height: 680px;
   margin-left: 85px;
+}
+
+@media only screen and (min-width: 1280px) {
+  .text-container {
+    margin-left: calc((100vw - 1280px) / 2 + 85px);
+  }
 }
 
 .title-text {
@@ -111,11 +117,9 @@ section {
 @media only screen and (max-width: 716px) {
   section {
     background-position: -500px -100px;
-    height: 720px;
   }
 
   .text-container {
-    height: 720px;
     margin-left: 65px;
   }
 
@@ -127,16 +131,55 @@ section {
 @media only screen and (max-width: 575px) {
   section {
     background-position: -600px -100px;
-    height: 720px;
   }
 
   .text-container {
-    height: 720px;
     margin-left: 15px;
   }
 
   .main-text {
     width: 450px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #home {
+    scroll-margin-top: 74.28px;
+  }
+
+  section {
+    background-position: 480px -120px;
+    height: 150.31vw;
+  }
+
+  .text-container {
+    margin-left: 10px;
+    height: 150.31vw;
+  }
+
+  .main-text {
+    font-size: 36px;
+    line-height: 40px;
+    width: 95vw;
+  }
+
+  .dash {
+    width: 5.8vw;
+    margin-right: 2.5vw;
+  }
+
+  .secondary-text {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 329px) {
+  section {
+    background-position: 360px -80px;
+  }
+
+  .secondary-text {
+    width: 220px;
   }
 }
 </style>

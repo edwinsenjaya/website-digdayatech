@@ -1,24 +1,17 @@
 <template>
-  <div
-    :class="
-      part === 'top'
-        ? `${part}-section-${index + 1}`
-        : `${part}-section-${index - 2}`
-    "
-  >
-    <div :class="part === 'top' ? `${part}-container` : `${part}-container`">
-      <img :src="photo" :alt="`${name}`" :class="`photo-${part}`" />
+  <div :class="`${part}-section-${index + 1}`">
+    <div class="content-container">
+      <img :src="useAsset(photo)" :alt="`${name}`" :class="`photo-team`" />
       <div class="banner">
         <p class="banner-name">{{ name }}</p>
-        <div class="title-container">
-          <p class="banner-title">{{ title }}</p>
-        </div>
+        <p class="banner-title">{{ title }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import useAsset from "../../helpers/useAsset";
 interface TeamPhotoProps {
   photo: string;
   part: string;
@@ -31,81 +24,56 @@ const teamPhotoProps = defineProps<TeamPhotoProps>();
 </script>
 
 <style scoped>
-div[class^="top-section-"] {
-  height: 520px;
-  width: 380px;
-}
-
-.top-section-1 {
-  background: #4400e6;
-}
-
-.top-section-2 {
-  background: #804dfa;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.top-section-3 {
-  background: #0cb1bb;
-}
-
-.photo-top {
-  height: 380px;
-  width: 380px;
-  filter: grayscale();
-  -webkit-filter: grayscale(100%);
-}
-
+div[class^="top-section-"],
 div[class^="bottom-section-"] {
   height: 425px;
   width: 285px;
 }
 
-.bottom-section-1 {
+div[class^="bottom-section-"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+div[class$="-section-1"],
+div[class$="-section-5"] {
   background: #804dfa;
 }
 
-.bottom-section-2 {
+div[class$="-section-2"],
+div[class$="-section-6"] {
   background: #4400e6;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
-.bottom-section-3 {
+div[class$="-section-3"],
+div[class$="-section-7"] {
+  background: #17d2bc;
+}
+
+div[class$="-section-4"],
+div[class$="-section-8"] {
   background: #0cb1bb;
 }
 
-.bottom-section-4 {
-  background: #0cb1bb;
+.content-container {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  height: 285px;
+  width: 285px;
 }
 
-.photo-bottom {
+.photo-team {
   height: 285px;
   width: 285px;
   filter: grayscale();
   -webkit-filter: grayscale(100%);
 }
 
-.top-container {
-  display: flex;
-  position: relative;
-  height: 380px;
-  width: 380px;
-  align-items: flex-end;
-}
-
-.bottom-container {
-  display: flex;
-  position: relative;
-  height: 285px;
-  width: 285px;
-  align-items: flex-end;
+.content-container:hover .photo-team {
+  filter: grayscale();
+  -webkit-filter: grayscale(0%);
 }
 
 .banner {
@@ -115,6 +83,10 @@ div[class^="bottom-section-"] {
   width: 100%;
   height: 72px;
   background: rgba(13, 1, 41, 0.8);
+}
+
+.content-container:hover .banner {
+  display: flex;
 }
 
 .banner p {
@@ -132,82 +104,38 @@ div[class^="bottom-section-"] {
 
 .banner-title {
   font-weight: 400;
-  margin-bottom: 9px;
-}
-
-.title-container {
-  display: flex;
-  justify-content: center;
-}
-
-.top-container:hover .photo-top,
-.bottom-container:hover .photo-bottom {
-  filter: grayscale();
-  -webkit-filter: grayscale(0%);
-}
-
-.top-container:hover .banner,
-.bottom-container:hover .banner {
-  display: block;
 }
 
 @media only screen and (max-width: 1279px) {
-  div[class^="top-section-"] {
-    height: 425px;
-    width: 310px;
-  }
-
+  div[class^="top-section-"],
   div[class^="bottom-section-"] {
-    height: 347.5px;
+    height: 345px;
     width: 232.5px;
   }
 
-  .photo-top,
-  .top-container {
-    height: 310px;
-    width: 310px;
-  }
-
-  .photo-bottom,
-  .bottom-container {
+  .content-container,
+  .photo-team {
     height: 232.5px;
     width: 232.5px;
-  }
-
-  .banner-name {
-    margin: 3px auto 10px;
-  }
-
-  .banner-title {
-    max-width: 75%;
   }
 }
 
 @media only screen and (max-width: 991px) {
-  div[class^="top-section-"] {
-    height: 310px;
-    width: 230px;
-  }
-
+  div[class^="top-section-"],
   div[class^="bottom-section-"] {
-    height: 252.5px;
+    height: 253px;
     width: 172.5px;
   }
 
-  .photo-top,
-  .top-container {
-    filter: grayscale();
-    -webkit-filter: grayscale(0%);
-    height: 230px;
-    width: 230px;
-  }
-
-  .photo-bottom,
-  .bottom-container {
-    filter: grayscale();
-    -webkit-filter: grayscale(0%);
+  .content-container,
+  .photo-team {
     height: 172.5px;
     width: 172.5px;
+  }
+
+  .photo-team {
+    filter: grayscale();
+    -webkit-filter: grayscale(0%);
   }
 
   .banner {
@@ -216,56 +144,51 @@ div[class^="bottom-section-"] {
   }
 
   .banner-name {
-    margin: 2px auto 5px;
+    margin: 11px auto 4px;
+  }
+
+  div[class$="-section-5"] .banner-name,
+  div[class$="-section-6"] .banner-name,
+  div[class$="-section-7"] .banner-name {
+    margin: 1.5px auto 4px;
   }
 }
 
-@media only screen and (max-width: 794px) {
+@media only screen and (max-width: 767px) {
   div[class^="top-section-"],
   div[class^="bottom-section-"] {
     height: 410px;
     width: 330px;
   }
 
-  .top-section-2 {
+  div[class^="bottom-section-"] {
     justify-content: flex-start;
   }
 
-  .bottom-section-2,
-  .bottom-section-4 {
-    justify-content: flex-start;
-  }
-
-  .photo-top,
-  .top-container,
-  .photo-bottom,
-  .bottom-container {
+  .content-container,
+  .photo-team {
     height: 330px;
     width: 330px;
   }
 
-  .banner-name {
-    margin: 7px auto 8px;
-  }
-
-  .banner-title {
-    max-width: 100%;
+  div[class$="-section-5"] .banner-name,
+  div[class$="-section-6"] .banner-name,
+  div[class$="-section-7"] .banner-name {
+    margin: 11px auto 4px;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 480px) {
   div[class^="top-section-"],
   div[class^="bottom-section-"] {
-    height: 530px;
-    width: 450px;
+    height: 110.4167vw;
+    width: 93.75vw;
   }
 
-  .photo-top,
-  .top-container,
-  .photo-bottom,
-  .bottom-container {
-    height: 450px;
-    width: 450px;
+  .content-container,
+  .photo-team {
+    height: 93.75vw;
+    width: 93.75vw;
   }
 }
 </style>

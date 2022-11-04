@@ -23,7 +23,7 @@
           loading="lazy"
           allowfullscreen
           referrerpolicy="no-referrer-when-downgrade"
-          :src="`https://www.google.com/maps/embed/v1/view?zoom=17&center=-6.2173,106.8303&key=${googleMapsKey}`"
+          :src="`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJweMrr_fzaS4RsweLo3mTM-g&key=${googleMapsKey}`"
         >
         </iframe>
       </div>
@@ -38,19 +38,19 @@ const googleMapsKey = config.googleMapsKey;
 const content = [
   {
     section: "address",
-    image: "../../assets/building.png",
+    image: "building.png",
     title: "Address",
     text: "Lippo Kuningan 17th floor , Jl. HR. Rasuna Said Kav. B-12 Setiabudi Jakarta 12940",
   },
   {
     section: "email",
-    image: "../../assets/email.png",
+    image: "email.png",
     title: "Email",
     text: "hello@digdayatech.id",
   },
   {
     section: "phone",
-    image: "../../assets/phone.png",
+    image: "phone.png",
     title: "Phone",
     text: "+621 508 130 84 +621 508 130 85",
   },
@@ -66,8 +66,13 @@ const content = [
   font-family: "Rubik";
   height: 745px;
   background: #303030;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0 50px;
+}
+
+@media only screen and (min-width: 1280px) {
+  .contact-us-container {
+    padding: 0 calc((100vw - 1280px) / 2 + 50px);
+  }
 }
 
 .title-text {
@@ -85,7 +90,6 @@ const content = [
 }
 
 .secondary-text {
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
@@ -182,6 +186,60 @@ const content = [
   .contact-us-container {
     padding-left: 15px;
     padding-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #contact {
+    scroll-margin-top: 74.28px;
+  }
+
+  .contact-us-container {
+    height: auto;
+    padding-left: 3.13vw;
+    padding-right: 3.13vw;
+  }
+
+  .title-text {
+    padding-top: 10.02vw;
+  }
+
+  .dash {
+    width: 5.85vw;
+    margin-right: 2.51vw;
+  }
+
+  .secondary-text {
+    margin-bottom: 6.26vw;
+  }
+
+  .main-text {
+    margin-bottom: 8.35vw;
+  }
+
+  .map-container {
+    height: 93.95vw;
+    margin-bottom: 10vw;
+  }
+
+  .text-container {
+    margin-bottom: 30px;
+    height: 107.31vw;
+  }
+
+  .google-maps {
+    height: 93.95vw;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .text-container {
+    height: 515px;
+  }
+
+  .map-container,
+  .google-maps {
+    height: 465px;
   }
 }
 </style>
